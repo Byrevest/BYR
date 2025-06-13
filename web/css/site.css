@@ -1,0 +1,304 @@
+/* Общие стили для темной неоновой темы */
+
+/* Переменные для удобства (если хотите использовать препроцессоры like Sass/Less, это будет проще) */
+:root {
+    --dark-bg: #1a1a2e; /* Очень темный фон */
+    --dark-card-bg: #2b2b40; /* Чуть светлее для карточек */
+    --text-color: #e0e0f0; /* Светлый, но не белый текст */
+    --neon-blue: #00f0ff; /* Неоново-голубой */
+    --neon-purple: #8a2be2; /* Неоново-фиолетовый */
+    --neon-green: #39ff14; /* Неоново-зеленый */
+    --border-color: #444455; /* Цвет рамки для большинства элементов */
+    --input-bg: #3c3c54; /* Фон для полей ввода */
+    --input-border: #6a6a80; /* Рамка для полей ввода */
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-color);
+    text-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue); /* Неоновый эффект для заголовков */
+}
+
+a {
+    color: var(--neon-blue); /* Неоновые ссылки */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--neon-green); /* Изменение цвета при наведении */
+    text-shadow: 0 0 8px var(--neon-green);
+}
+
+/* Навигационная панель */
+.navbar {
+    background-color: var(--dark-card-bg);
+    border-bottom: 1px solid var(--neon-purple); /* Неоновая нижняя граница */
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.5); /* Неоновая тень */
+}
+
+.navbar-brand {
+    color: var(--neon-blue) !important;
+    text-shadow: 0 0 8px var(--neon-blue);
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link {
+    color: var(--text-color) !important;
+    transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--neon-green) !important;
+    text-shadow: 0 0 5px var(--neon-green);
+}
+
+.navbar-nav .nav-link.active {
+    color: var(--neon-blue) !important;
+    border-bottom: 2px solid var(--neon-blue);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 240, 255, 0.7%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/* Основное содержимое */
+.wrap > .container {
+    padding-top: 20px; /* Отступ сверху для контента */
+    padding-bottom: 20px;
+}
+
+/* Карточки (топики, комментарии) */
+.card {
+    background-color: var(--dark-card-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.2); /* Неоновая тень */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+}
+
+.card-header {
+    background-color: var(--dark-bg);
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-color);
+}
+
+.card-footer {
+    background-color: var(--dark-bg);
+    border-top: 1px solid var(--border-color);
+    color: var(--text-color);
+}
+
+/* Кнопки */
+.btn {
+    border-width: 1px;
+    border-style: solid;
+    padding: 8px 15px;
+    transition: all 0.3s ease;
+    text-shadow: none; /* Убираем стандартную тень текста Bootstrap */
+}
+
+.btn-primary {
+    background-color: var(--neon-blue);
+    border-color: var(--neon-blue);
+    color: #000000; /* Темный текст на неоновой кнопке */
+}
+
+.btn-primary:hover {
+    background-color: var(--neon-green);
+    border-color: var(--neon-green);
+    box-shadow: 0 0 10px var(--neon-green);
+    color: #000000;
+}
+
+.btn-success {
+    background-color: var(--neon-green);
+    border-color: var(--neon-green);
+    color: #000000;
+}
+
+.btn-success:hover {
+    background-color: darken(var(--neon-green), 10%); /* Замените на конкретный цвет, если не используете препроцессор */
+    box-shadow: 0 0 10px var(--neon-green);
+    color: #000000;
+}
+
+.btn-danger {
+    background-color: #8B0000; /* Темно-красный */
+    border-color: #8B0000;
+    color: var(--text-color);
+}
+
+.btn-danger:hover {
+    background-color: #FF0000; /* Ярко-красный */
+    border-color: #FF0000;
+    box-shadow: 0 0 10px #FF0000;
+}
+
+.btn-info {
+    background-color: var(--neon-purple);
+    border-color: var(--neon-purple);
+    color: var(--text-color);
+}
+
+.btn-info:hover {
+    background-color: darken(var(--neon-purple), 10%);
+    box-shadow: 0 0 10px var(--neon-purple);
+}
+
+.btn-outline-secondary {
+    border-color: var(--border-color);
+    color: var(--text-color);
+}
+
+.btn-outline-secondary:hover {
+    background-color: var(--neon-blue);
+    border-color: var(--neon-blue);
+    color: #000000;
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+}
+
+/* Формы и поля ввода */
+.form-control {
+    background-color: var(--input-bg);
+    border: 1px solid var(--input-border);
+    color: var(--text-color);
+    padding: 10px 15px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    background-color: var(--input-bg);
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 8px rgba(0, 240, 255, 0.5); /* Неоновая тень при фокусе */
+    color: var(--text-color);
+}
+
+.form-label {
+    color: var(--text-color);
+}
+
+/* Аватары */
+.comment-author-avatar img {
+    border: 2px solid var(--neon-blue); /* Неоновая рамка для аватара */
+    box-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+}
+
+/* Футер */
+.footer {
+    background-color: var(--dark-card-bg);
+    border-top: 1px solid var(--neon-purple); /* Неоновая верхняя граница */
+    color: var(--text-color);
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+/* Сообщения flash */
+.alert {
+    color: #fff; /* Белый текст для всех сообщений */
+    text-shadow: 0 0 3px rgba(0,0,0,0.5);
+}
+
+.alert-success {
+    background-color: rgba(57, 255, 20, 0.2); /* Полупрозрачный неоново-зеленый */
+    border-color: var(--neon-green);
+    box-shadow: 0 0 10px var(--neon-green);
+}
+
+.alert-danger {
+    background-color: rgba(255, 0, 0, 0.2); /* Полупрозрачный красный */
+    border-color: #FF0000;
+    box-shadow: 0 0 10px #FF0000;
+}
+
+.alert-info {
+    background-color: rgba(0, 240, 255, 0.2); /* Полупрозрачный неоново-голубой */
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 10px var(--neon-blue);
+}
+
+/* GridView (для админ-панели пользователей) */
+.grid-view table {
+    background-color: var(--dark-card-bg);
+    border: 1px solid var(--border-color);
+}
+.grid-view th {
+    background-color: var(--dark-bg);
+    color: var(--neon-blue);
+    border-bottom: 1px solid var(--neon-blue);
+    text-shadow: 0 0 5px var(--neon-blue);
+}
+.grid-view td {
+    border-color: var(--border-color);
+    color: var(--text-color);
+}
+.grid-view .pagination > li > a,
+.grid-view .pagination > li > span {
+    background-color: var(--dark-bg);
+    border: 1px solid var(--border-color);
+    color: var(--neon-blue);
+}
+.grid-view .pagination > .active > a,
+.grid-view .pagination > .active > span {
+    background-color: var(--neon-blue) !important;
+    border-color: var(--neon-blue) !important;
+    color: #000000 !important;
+}
+.grid-view .pagination > li > a:hover,
+.grid-view .pagination > li > span:hover {
+    background-color: var(--neon-green);
+    border-color: var(--neon-green);
+    color: #000000;
+}
+
+/* Убираем подчеркивание у кнопок logout в навбаре */
+.navbar .logout {
+    text-decoration: none !important;
+    color: var(--text-color) !important;
+}
+.navbar .logout:hover {
+    color: var(--neon-green) !important;
+    text-shadow: 0 0 5px var(--neon-green);
+}
+
+/* Дополнительные стили для изображений топиков */
+.topic-view .img-fluid.rounded {
+    border: 2px solid var(--neon-blue) !important;
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.5) !important;
+}
+
+/* Скроллбар (только для WebKit-браузеров) */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--dark-bg);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--neon-blue);
+    border-radius: 5px;
+    box-shadow: 0 0 5px var(--neon-blue);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--neon-green);
+    box-shadow: 0 0 8px var(--neon-green);
+}
+
+body {
+    padding-top: 70px; /* Adjust this value as needed */
+}
